@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   const apiProxyTarget = env.API_HOST || 'http://localhost:4200'
+  const previewPort = Number(process.env.PORT) || 4202
 
   return {
     plugins: [react()],
@@ -14,6 +15,11 @@ export default defineConfig(({ mode }) => {
       proxy: {
         '/api': apiProxyTarget
       }
+    },
+    preview: {
+      host: '0.0.0.0',
+      port: previewPort,
+      strictPort: true
     }
   }
 })
