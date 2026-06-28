@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 
-const API_URL = '/api/message'
+const API_URL = `${API_HOST}/api/message`
 
 /**
  * Fetches a user from the API.

@@ -9,6 +9,9 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react()],
+    define: {
+      API_HOST: JSON.stringify(env.API_HOST || '')
+    },
     server: {
       port: 4201,
       strictPort: true,
@@ -16,10 +19,5 @@ export default defineConfig(({ mode }) => {
         '/api': apiProxyTarget
       }
     },
-    preview: {
-      host: '0.0.0.0',
-      port: previewPort,
-      strictPort: true
-    }
   }
 })
